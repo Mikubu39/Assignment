@@ -80,13 +80,11 @@ namespace Assignment.Controllers
 
             var claims = new[]
             {
-                new Claim(ClaimTypes.Name, user.Username),
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
-            };
+        new Claim(ClaimTypes.Name, user.Username),
+        new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
+    };
 
             var token = new JwtSecurityToken(
-                issuer: _config["Jwt:Issuer"],
-                audience: _config["Jwt:Audience"],
                 claims: claims,
                 expires: DateTime.UtcNow.AddHours(1),
                 signingCredentials: credentials
@@ -96,8 +94,8 @@ namespace Assignment.Controllers
         }
     }
 
-    // ✅ Request Models
-    public class UserRegisterRequest
+        // ✅ Request Models
+        public class UserRegisterRequest
     {
         public string Username { get; set; }
         public string Password { get; set; }
